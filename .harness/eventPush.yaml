@@ -31,14 +31,14 @@ inputSet:
                         type: Plugin
                         spec:
                           settings:
-                            repo: plugins/<+matrix.repo>
+                            repo: devanshmathur19/<+matrix.repo>
                             dockerfile: docker/<+matrix.repo>/Dockerfile.linux.amd64
                             auto_tag_suffix: linux-amd64
                     - step:
                         identifier: BuildAndPushDockerRegistry_1
                         type: BuildAndPushDockerRegistry
                         spec:
-                          repo: plugins/<+matrix.repo>
+                          repo: devanshmathur19/<+matrix.repo>
                           tags:
                             - linux-amd64
                           dockerfile: docker/<+matrix.repo>/Dockerfile.linux.amd64
@@ -58,14 +58,14 @@ inputSet:
                         type: Plugin
                         spec:
                           settings:
-                            repo: plugins/<+matrix.repo>
+                            repo: devanshmathur19/<+matrix.repo>
                             dockerfile: docker/<+matrix.repo>/Dockerfile.linux.arm64
                             auto_tag_suffix: linux-arm64
                     - step:
                         identifier: BuildAndPushDockerRegistry_1
                         type: BuildAndPushDockerRegistry
                         spec:
-                          repo: plugins/<+matrix.repo>
+                          repo: devanshmathur19/<+matrix.repo>
                           tags:
                             - linux-arm64
                           dockerfile: docker/<+matrix.repo>/Dockerfile.linux.arm64
@@ -80,14 +80,14 @@ inputSet:
                         type: Plugin
                         spec:
                           settings:
-                            repo: plugins/<+matrix.repo>
+                            repo: devanshmathur19/<+matrix.repo>
                             dockerfile: docker/<+matrix.repo>/Dockerfile.windows.amd64.1809
                             auto_tag_suffix: windows-1809-amd64
                     - step:
                         identifier: BuildAndPushDockerRegistry_2
                         type: BuildAndPushDockerRegistry
                         spec:
-                          repo: plugins/<+matrix.repo>
+                          repo: devanshmathur19/<+matrix.repo>
                           tags:
                             - windows-1809-amd64
                           dockerfile: docker/<+matrix.repo>/Dockerfile.windows.amd64.1809
@@ -102,14 +102,14 @@ inputSet:
                         type: Plugin
                         spec:
                           settings:
-                            repo: plugins/<+matrix.repo>
+                            repo: devanshmathur19/<+matrix.repo>
                             dockerfile: docker/<+matrix.repo>/Dockerfile.windows.amd64.ltsc2022
                             auto_tag_suffix: windows-ltsc2022-amd64
                     - step:
                         identifier: BuildAndPushDockerRegistry_2
                         type: BuildAndPushDockerRegistry
                         spec:
-                          repo: plugins/<+matrix.repo>
+                          repo: devanshmathur19/<+matrix.repo>
                           tags:
                             - windows-ltsc2022-amd64
                           dockerfile: docker/<+matrix.repo>/Dockerfile.windows.amd64.ltsc2022
