@@ -33,12 +33,8 @@ volumes:
     temp: {}
 
 trigger:
-  ref:
-    - refs/heads/master
-    - "refs/tags/**"
-    - "refs/pull/**"
-    branch:
-    - CI-16402localdroente
+  branch:
+    - CI-16402localdroentest
 
 ---
 kind: pipeline
@@ -94,10 +90,6 @@ steps:
           - pull_request
 
 trigger:
-  ref:
-    - refs/heads/master
-    - "refs/tags/**"
-    - "refs/pull/**"
   branch:
     - CI-16402localdroentest
 
