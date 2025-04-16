@@ -37,6 +37,8 @@ trigger:
     - refs/heads/master
     - "refs/tags/**"
     - "refs/pull/**"
+    branch:
+    - CI-16402localdroente
 
 ---
 kind: pipeline
@@ -96,6 +98,8 @@ trigger:
     - refs/heads/master
     - "refs/tags/**"
     - "refs/pull/**"
+  branch:
+    - CI-16402localdroentest
 
 depends_on:
   - testing
