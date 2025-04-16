@@ -73,7 +73,7 @@ steps:
       - ./release/linux/arm64/drone-docker --help
 
   - name: publish
-    image: plugins/docker:18
+    image: devanshmathur19/docker:dind27push
     settings:
       auto_tag: true
       auto_tag_suffix: linux-arm64-fromdrone
@@ -86,8 +86,9 @@ steps:
         from_secret: docker_username
     when:
       event:
-        exclude:
-          - pull_request
+      include:
+        - push
+        - tag
 
 trigger:
   branch:
