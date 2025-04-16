@@ -31,11 +31,7 @@ steps:
 volumes:
   - name: gopath
     temp: {}
-
-trigger:
-  branch:
-    - CI-16402localdroentest
-
+    
 ---
 kind: pipeline
 name: linux-arm64-docker
@@ -84,15 +80,6 @@ steps:
       repo: devanshmathur19/docker
       username:
         from_secret: docker_username
-    when:
-      event:
-      include:
-        - push
-        - tag
-
-trigger:
-  branch:
-    - CI-16402localdroentest
 
 depends_on:
   - testing
