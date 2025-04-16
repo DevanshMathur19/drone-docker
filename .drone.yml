@@ -5,7 +5,7 @@ type: docker
 
 platform:
   os: linux
-  arch: amd64
+  arch: arm64
 
 steps:
   - name: vet
@@ -38,18 +38,18 @@ trigger:
 
 ---
 kind: pipeline
-name: linux-amd64-docker
+name: linux-arm64-docker
 type: docker
 
 platform:
   os: linux
-  arch: amd64
+  arch: arm64
 
 steps:
   - name: build-push
     image: golang:1.22.7
     commands:
-      - 'go build -v -ldflags "-X main.version=${DRONE_COMMIT_SHA:0:8}" -a -tags netgo -o release/linux/amd64/drone-docker ./cmd/drone-docker'
+      - 'go build -v -ldflags "-X main.version=${DRONE_COMMIT_SHA:0:8}" -a -tags netgo -o release/linux/arm64/drone-docker ./cmd/drone-docker'
     environment:
       CGO_ENABLED: 0
     when:
@@ -60,7 +60,7 @@ steps:
   - name: build-tag
     image: golang:1.22.7
     commands:
-      - 'go build -v -ldflags "-X main.version=${DRONE_TAG##v}" -a -tags netgo -o release/linux/amd64/drone-docker ./cmd/drone-docker'
+      - 'go build -v -ldflags "-X main.version=${DRONE_TAG##v}" -a -tags netgo -o release/linux/arm64/drone-docker ./cmd/drone-docker'
     environment:
       CGO_ENABLED: 0
     when:
@@ -70,15 +70,15 @@ steps:
   - name: executable
     image: golang:1.22.7
     commands:
-      - ./release/linux/amd64/drone-docker --help
+      - ./release/linux/arm64/drone-docker --help
 
   - name: publish
     image: plugins/docker:18
     settings:
       auto_tag: true
-      auto_tag_suffix: linux-amd64-fromdrone
+      auto_tag_suffix: linux-arm64-fromdrone
       daemon_off: false
-      dockerfile: docker/docker/Dockerfile.linux.amd64
+      dockerfile: docker/docker/Dockerfile.linux.arm64
       password:
         from_secret: docker_password
       repo: devanshmathur19/docker
